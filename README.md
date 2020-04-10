@@ -5,5 +5,5 @@ Course Name: The Complete 2020 Flutter Development Bootcamp with Dart
 Section: 6
 
 ## Screenshots
-- Homescreen: ![](layout-challenge-answer.png)
+- Homescreen: ![](MiCard-Homescreen.png)
 
