@@ -11,39 +11,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: SafeArea(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Container(
-                color: Colors.red,
-                width: 100.0,
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      color: Colors.yellow[300],
-                    ),
-                  ],
-                )
-              ),
-              Container(
-                color: Colors.blue,
-                width: 100.0,
-              )
-            ]
-          )
+        appBar: AppBar(
+          title: Text('Dice'),
+          backgroundColor: Colors.red,
         ),
+        backgroundColor: Colors.red,
+        body: SafeArea(
+          child: DicePage(),
+        ),
+      ),
+    );
+  }
+}
+
+class DicePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset('images/dice1.png'),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset('images/dice2.png'),
+            ),
+          ),
+        ],
       ),
     );
   }
