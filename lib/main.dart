@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:audioplayers/audio_cache.dart';
 
-void main() {
-  runApp(
-    MyApp()
-  );
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Ask Me Anything'),
+          title: Text('Xylophone'),
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
@@ -32,7 +28,7 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  int ballNumber = 1;
+  final player = AudioCache();
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +38,9 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: FlatButton(
               onPressed: () {
-                setState(() {
-                  //Random().nextInt(n) will generate random int between 0 until (n-1)
-                  ballNumber = Random().nextInt(5)+1;
-                });
+                player.play('note1.wav');
               },
-              child: Image.asset('images/ball$ballNumber.png'),
+              child: Image.asset('images/ball1.png'),
             ),
           ),
         ],
