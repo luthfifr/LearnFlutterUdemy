@@ -4,6 +4,10 @@ import 'package:audioplayers/audio_cache.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final player = AudioCache();
+
+  void playSound(String fileName) => player.play('note$fileName.wav');
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,37 +17,79 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.white,
         body: SafeArea(
-          child: DicePage(),
-        ),
-      ),
-    );
-  }
-}
-
-class DicePage extends StatefulWidget {
-  @override
-  _DicePageState createState() => _DicePageState();
-}
-
-class _DicePageState extends State<DicePage> {
-  final player = AudioCache();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                player.play('note1.wav');
-              },
-              child: Image.asset('images/ball1.png'),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.red,
+                    child: null,
+                    onPressed: () {
+                      playSound('1');
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.orange,
+                    child: null,
+                    onPressed: () {
+                      playSound('2');
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.yellow,
+                    child: null,
+                    onPressed: () {
+                      playSound('3');
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.lightGreen,
+                    child: null,
+                    onPressed: () {
+                      playSound('4');
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.green,
+                    child: null,
+                    onPressed: () {
+                      playSound('5');
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.blue,
+                    child: null,
+                    onPressed: () {
+                      playSound('6');
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    color: Colors.purple,
+                    child: null,
+                    onPressed: () {
+                      playSound('7');
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
