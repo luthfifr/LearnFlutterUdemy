@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Dice'),
-          backgroundColor: Colors.red,
+          title: Text('Ask Me Anything'),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
         ),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.lightBlue,
         body: SafeArea(
           child: DicePage(),
         ),
@@ -31,8 +32,7 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  int diceNumberLeft = 1;
-  int diceNumberRight = 1;
+  int ballNumber = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -44,20 +44,11 @@ class _DicePageState extends State<DicePage> {
               onPressed: () {
                 setState(() {
                   //Random().nextInt(n) will generate random int between 0 until (n-1)
-                  diceNumberLeft = Random().nextInt(6)+1;
+                  ballNumber = Random().nextInt(5)+1;
                 });
               },
-              child: Image.asset('images/dice$diceNumberLeft.png'),
+              child: Image.asset('images/ball$ballNumber.png'),
             ),
-          ),
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                setState(() {
-                  diceNumberRight = Random().nextInt(6)+1;
-                });
-              },
-              child: Image.asset('images/dice$diceNumberRight.png')),
           ),
         ],
       ),
